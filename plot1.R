@@ -12,9 +12,9 @@ unlink(temp)
 data$Date <- as.Date(data$Date, "%d/%m/%Y")
 
 # subset to only days 2007-02-01 and 2007-02-02 for histogram
-histData <- subset(data, data$Date == as.Date("2007-02-01") | data$Date == as.Date("2007-02-02"))
+chartData <- subset(data, data$Date == as.Date("2007-02-01") | data$Date == as.Date("2007-02-02"))
 
 # create the histogram in a png file
 png(filename = "plot1.png", height = 480, width = 480)
-hist(histData$Global_active_power, col = "Red", main = "Global Active Power", xlab = "Global Active Power (kilowatts)")
+hist(chartData$Global_active_power, col = "Red", main = "Global Active Power", xlab = "Global Active Power (kilowatts)")
 dev.off()
