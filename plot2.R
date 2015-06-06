@@ -16,6 +16,6 @@ chartData$dt <- strptime(chartData$dt, format='%d/%m/%Y %H:%M')
 
 # plot the power over time and save to a png file
 png(filename = "plot2.png", height = 480, width = 480)
-plot(chartData$dt, chartData$Global_active_power, type = "n", xlab = "", ylab = "Global Active Power (kilowatts)")
-lines(chartData$dt, chartData$Global_active_power, col = "black", pch = 22, lty = 1)
+plot(range(chartData$dt), range(chartData$Global_active_power), type = "n", xlab = "", ylab = "Global Active Power (kilowatts)")
+lines(chartData$dt, chartData$Global_active_power, col = "black", lty = 1)
 dev.off()
