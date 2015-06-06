@@ -12,6 +12,10 @@ chartData <- subset(data, data$Date == "1/2/2007" | data$Date == "2/2/2007")
 
 # create a date-time column out of the Date and Time columns
 chartData$dt <- cbind(paste(chartData$Date, chartData$Time))
-chartData$dt <- strptime(chartData$dt, format='%m/%d/%Y %H:%M')
+chartData$dt <- strptime(chartData$dt, format='%d/%m/%Y %H:%M')
 
-# plot the power over time
+# plot the power over time and save to a png file
+png(filename = "plot2.png", height = 480, width = 480)
+plot(chartData$dt, chartData$Global_active_power, type = "n", xlab = "", ylab = "Global Active Power (kilowatts)")
+lines(chartData$dt, chartData$Global_active_power, col = "black", pch = 22, lty = 1)
+dev.off()
